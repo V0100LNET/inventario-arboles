@@ -19,10 +19,10 @@ const Login = () => {
                         type="password"
                         placeholder="Contraseña"
                     />
-                    <seclect>
+                    <select className="form_select input-principal">
                         <option>Brigadista</option>
                         <option>Admin</option>
-                    </seclect>
+                    </select>
                     <button className="iniciar-sesion btn-principal">Inciar Sesión</button>
                     <button className="register btn-principal">Registrarse</button>
                     <p>¿Olvidaste la contraseña?</p>

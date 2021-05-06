@@ -36,6 +36,10 @@ a:hover{
     color: white;
 }
 
+input::placeholder{
+    color: #ccc;
+}
+
 *,
 ::after,
 ::before{
@@ -180,3 +184,4 @@ body{
     width: 350px;
     margin-top: 10px;
 }
+
