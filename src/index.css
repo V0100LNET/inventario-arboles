@@ -63,6 +63,7 @@ body{
     background-size: cover;
     height: 100vh;
     min-height: 100vh;
+    min-width: 503px;
 }
 
 .home .home__links{
@@ -100,6 +101,7 @@ body{
     color: white;
     font-weight: 400;
     margin-right: 20px;
+    display: inline-flex;
 }
 
 
@@ -162,6 +164,7 @@ body{
     width: 300px;
     display: block;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .login form{
@@ -174,6 +177,14 @@ body{
     text-align: center;
 }
 
+.login_left .form_select{
+    color: #ccc;
+}
+
+.login_left .form_select:focus{
+    color: black;
+}
+
 .login_left form .iniciar-sesion{
     display: inline-block;
     width: 350px;
@@ -183,5 +194,41 @@ body{
     display: inline-block;
     width: 350px;
     margin-top: 10px;
+}
+
+/*****************************************************REGISTRARSE ESTILOS*********************************/
+.register{
+    max-width: 730px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register .register__logo img{
+    cursor: pointer;
+    width: 400px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.register form{
+    text-align: center;
+}
+
+.register .register__form .register__form-selec{
+    display: inline-flex;
+}
+
+.register button{
+    display: inline-block;
+    width: 710px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.register input{
+    margin-right: 10px;
 }
 

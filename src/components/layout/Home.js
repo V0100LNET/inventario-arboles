@@ -1,13 +1,17 @@
 import React from 'react';
 import logo_cdmx from "./logo-png.png";
-import { Route, Router, useHistory } from 'react-router';
+import { useHistory } from 'react-router';
 
 
 const Home = () => {
     const history = useHistory();
 
-    const IniciarSesion = () => {
+    const iniciarSesion = () => {
         history.push("/Login");
+    }
+
+    const registrarUsuario = () => {
+        history.push("/registrarse");
     }
 
 
@@ -23,8 +27,8 @@ const Home = () => {
                     <a>Contacto</a>
                 </div>
                 <div className="home__links-buton">
-                    <button className="register">Registrarse</button>
-                    <button className="btn-principal" onClick={IniciarSesion}>Iniciar Sesión</button>
+                    <button className="register" onClick={registrarUsuario}>Registrarse</button>
+                    <button className="btn-principal" onClick={iniciarSesion}>Iniciar Sesión</button>
                 </div>
             </nav>
 
