@@ -3,7 +3,7 @@ import React from 'react';
 
 const Error = ({mensaje}) => {
     return(
-        <h1>{mensaje}</h1>
+        <h1 className="error">{mensaje}</h1>
     )
 }
 

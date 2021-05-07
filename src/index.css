@@ -31,6 +31,15 @@
     color: white;
 }
 
+.error{
+    float: right;
+    font-size: 0.8rem;
+    margin-right: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: red;
+}
+
 a:hover{
     text-decoration: none;
     color: white;
@@ -179,15 +188,22 @@ body{
 
 .login_left .form_select{
     color: #ccc;
+    margin-top: 10px;
 }
 
 .login_left .form_select:focus{
     color: black;
 }
 
+.login_left input{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
 .login_left form .iniciar-sesion{
     display: inline-block;
     width: 350px;
+    margin-top: 15px;
 }
 
 .login_left form .register{
@@ -217,8 +233,20 @@ body{
     text-align: center;
 }
 
+.register input{
+    display: block;
+    margin: auto;
+    width: 710px;
+    position: relative;
+    margin-top: 15px;
+}
+
 .register .register__form .register__form-selec{
-    display: inline-flex;
+    display: block;
+    margin: auto;
+    width: 710px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .register button{
