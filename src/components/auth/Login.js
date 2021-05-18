@@ -39,6 +39,7 @@ const Login = () => {
 
             try {
                 let respuestaBaseDatos = await clienteAxios.get("http://localhost:5500/users");
+                //eslint-disable-next-line
                 respuestaBaseDatos.data.map((dataDB) => {
                     //dashboard admin
                     if(datos.tipoUser.toLowerCase() === "admin"){
@@ -68,7 +69,7 @@ const Login = () => {
     return(
         <section className="login">
             <div className="login_left">
-                <a href="/"><img src={logo_cdmx}></img></a>
+                <a href="/"><img src={logo_cdmx} alt="logo"></img></a>
                 <form>
                     <h1>Iniciar Sesión</h1>
                     <input
