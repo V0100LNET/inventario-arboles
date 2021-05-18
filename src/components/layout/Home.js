@@ -24,7 +24,7 @@ const Home = () => {
                 <div className="home__links-link">
                     <a href="/#" className="active">Inicio</a>
                     <a href="/acerca-de">A cerca de</a>
-                    <a href="/contacto">Oswaldo</a>
+                    <a href="/contacto">Contacto</a>
                 </div>
                 <div className="home__links-buton">
                     <button className="register" onClick={registrarUsuario}>Registrarse</button>
