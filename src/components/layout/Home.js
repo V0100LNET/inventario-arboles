@@ -22,9 +22,9 @@ const Home = () => {
                     <img src={logo_cdmx} alt="logo"/>
                 </div>
                 <div className="home__links-link">
-                    <a className="active">Inicio</a>
-                    <a>A cerca de</a>
-                    <a>Contacto</a>
+                    <a href="/#" className="active">Inicio</a>
+                    <a href="/acerca-de">A cerca de</a>
+                    <a href="/contacto">Contacto</a>
                 </div>
                 <div className="home__links-buton">
                     <button className="register" onClick={registrarUsuario}>Registrarse</button>

@@ -56,7 +56,7 @@ const Registrarse = () => {
     return(
         <section className="register">
             <div className="register__logo">
-                <a href="/"><img src={logo}></img></a>
+                <a href="/"><img src={logo} alt="Logo de registro"></img></a>
             </div>
 
             <form className="register__form">

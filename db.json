@@ -1,12 +1,12 @@
 {
     "users": [
         {
-            "name":"admin1",
+            "email":"testA@test.com",
             "password": "admin01",
             "typeUser" : "admin"
         },
         {
-            "user":"brigadista1",
+            "email":"testB@test.com",
             "password": "brigadista01",
             "typeUser" : "brigadista"
         }

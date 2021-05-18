@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import clienteAxios from '../../config/axios';
 import validarInicioSesion from '../../helpers/validarIniciarSesion';
 import Error from '../error/Error';
 import logo_cdmx from "./logo.png";
@@ -27,26 +28,41 @@ const Login = () => {
         })
     }
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
-        let validarDatos = validarInicioSesion(datos);
+        let validarDatos = await validarInicioSesion(datos);
 
+        //si la variable datos esta vacia quiere decir que no hay ningun error en la peticion
         if(Object.keys(validarDatos).length === 0){
-            console.log("Datos enviados correctamente");
             guardarErrores(false);
+            console.log(datos.tipoUser.toLowerCase());
 
-            // guardarDatos({
-            //     email: "",
-            //     password: "",
-            //     tipoUser: ""
-            // })
-            history.push("/dashboard-admin");
+            try {
+                let respuestaBaseDatos = await clienteAxios.get("http://localhost:5500/users");
+                respuestaBaseDatos.data.map((dataDB) => {
+                    //dashboard admin
+                    if(datos.tipoUser.toLowerCase() === "admin"){
+                        if(datos.email === dataDB.email && datos.password === dataDB.password && datos.tipoUser.toLowerCase() === dataDB.typeUser.toLowerCase()){
+                            console.log("Todos los datos son correctos");
+                            history.push("/dashboard-admin");
+                        }
+                    }
+                    //dashboard brigadista
+                    if(datos.tipoUser.toLowerCase() === "brigadista"){
+                        if(datos.email === dataDB.email && datos.password === dataDB.password && datos.tipoUser.toLowerCase() === dataDB.typeUser.toLowerCase()){
+                            console.log("Todos los datos son correctos");
+                            history.push("/dashboard-brigadista");
+                        }
+                    }
+                    
+                });
+            } catch (error) {
+                console.log(error);
+            }
         }
         else{
             guardarErrores(validarDatos);
         }
-        
-        console.log(error);
     }
 
     return(
@@ -92,9 +108,7 @@ const Login = () => {
                     <p>¿Olvidaste la contraseña?</p>
                 </form>
             </div>
-            <div className="login_right">
-                <img></img>
-            </div>
+            <div className="login_right"></div>
         </section>
     )
 }

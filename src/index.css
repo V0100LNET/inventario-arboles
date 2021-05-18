@@ -40,6 +40,10 @@
     color: red;
 }
 
+a{
+    color: white;
+}
+
 a:hover{
     text-decoration: none;
     color: white;
@@ -179,6 +183,7 @@ body{
 .login form{
     max-width: 600px;
     margin: 0 auto;
+    width: 385px;
 }
 
 .login_left form h1{
