@@ -1,12 +1,12 @@
 export default function validarRegistro(valores){
     let errores = {};
 
-    if(!valores.nombre){
-        errores.nombre = "El nombre es obligatorio"
+    if(!valores.name){
+        errores.name = "El nombre es obligatorio"
     }
 
-    if(!valores.apellidos){
-        errores.apellidos = "El apellido es obligatorio"
+    if(!valores.lastName){
+        errores.lastName = "El apellido es obligatorio"
     }
 
     if(!valores.email){
@@ -16,8 +16,8 @@ export default function validarRegistro(valores){
         errores.email  = "Email no válido";
     }
 
-    if(!valores.numeroTel){
-        errores.numeroTel = "El número es obligatorio"
+    if(!valores.number_tel){
+        errores.number_tel = "El número es obligatorio"
     }
 
     if(!valores.password){
@@ -27,8 +27,8 @@ export default function validarRegistro(valores){
         errores.password = "El password debe ser de al menos 6 carácteres";
     }
 
-    if(!valores.tipoUser){
-        errores.tipoUser = "No has seleccionado tipo de usuario"
+    if(!valores.typeUser){
+        errores.typeUser = "No has seleccionado tipo de usuario"
     }
 
     return errores;

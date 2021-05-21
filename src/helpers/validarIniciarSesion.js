@@ -10,8 +10,8 @@ export default async function validarInicioSesion(valores){
         errores.password = "La contraseña es incorrecta";
     }
 
-    if(!valores.tipoUser){
-        errores.tipoUser = "No has seleccionado tipo de usuario";
+    if(!valores.typeUser){
+        errores.typeUser = "No has seleccionado tipo de usuario";
     }
 
     return errores;
