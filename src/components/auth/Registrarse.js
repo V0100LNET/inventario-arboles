@@ -41,20 +41,26 @@ const Registrarse = () => {
         let validarDatos = validarRegistro(datos);
         const setOpacityContent = document.querySelector(".register");
 
-        // TODO: aqui falta la validacion cuando es admin o brigadista y dependiendo de eso, es 
-        // como te llevara al dashboard correspondiente
         if(Object.keys(validarDatos).length === 0){
             console.log(datos);
-
             try {
                 let respuestaBaseDatos = await clienteAxios.post('/auth/register',datos);
-                console.log(respuestaBaseDatos);
                 setSpinner(true);
                 setOpacityContent.classList.add("opacity");
-                console.log("Datos enviados correctamente");
 
                 setTimeout(() => {
                     setSpinner(false)
+                    if(respuestaBaseDatos.data.status === "409"){
+                        guardarErrores({"email" : respuestaBaseDatos.data.message});
+                        Swal.fire({
+                            icon: 'error',
+                            title: '¡ERROR!',
+                            text: '!El email proporcionado ya existe!',
+                            confirmButtonText: 'Aceptar'
+                        })
+                        setOpacityContent.classList.remove("opacity");
+                        return 
+                    }
                     Swal.fire({
                         title: '¡Registro Exitoso!',
                         icon: 'success',
@@ -69,6 +75,7 @@ const Registrarse = () => {
                         typeUser: ""
                     })
                     setOpacityContent.classList.remove("opacity");
+                    history.push("/login");
                 }, 3000);
                 guardarErrores(false);
             } catch (error) {

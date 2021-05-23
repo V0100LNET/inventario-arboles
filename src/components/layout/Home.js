@@ -1,36 +1,13 @@
 import React from 'react';
-import logo_cdmx from "./logo-png.png";
-import { useHistory } from 'react-router';
+
+import Header from './Header';
 
 
 const Home = () => {
-    const history = useHistory();
-
-    const iniciarSesion = () => {
-        history.push("/Login");
-    }
-
-    const registrarUsuario = () => {
-        history.push("/registrarse");
-    }
-
 
     return(
         <section className="home">
-            <nav className="home__links">
-                <div className="home__links-logo">
-                    <img src={logo_cdmx} alt="logo"/>
-                </div>
-                <div className="home__links-link">
-                    <a href="/#" className="active">Inicio</a>
-                    <a href="/acerca-de">A cerca de</a>
-                    <a href="/contacto">Contacto</a>
-                </div>
-                <div className="home__links-buton">
-                    <button className="register" onClick={registrarUsuario}>Registrarse</button>
-                    <button className="btn-principal" onClick={iniciarSesion}>Iniciar Sesión</button>
-                </div>
-            </nav>
+            <Header/>
 
             <div className="home__content">
                 <section>

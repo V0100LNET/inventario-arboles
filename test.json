@@ -1,0 +1,10 @@
+{
+    "arboles": [
+        {
+            "id": "1",
+            "name": "ARB33",
+            "placa" : "ARB1234",
+            "type":"pino"
+        }
+    ]
+}

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Header from './Header';
 
 
 const Acercade = () => {
     return(
-        <h1>A cerca de</h1>
+        <Fragment>
+            <Header/>
+            
+            <h1>A cerca de</h1>
+        </Fragment>
     )
+
 }
 
 

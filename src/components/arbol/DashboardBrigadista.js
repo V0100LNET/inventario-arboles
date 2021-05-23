@@ -1,9 +1,14 @@
 import React from 'react';
+import Header from '../layout/Header';
 
 
 const DashboardBrigadista = () => {
     return(
-        <h1>Desde del dashboard del brigadista</h1>
+        <section className="dashboard">
+            <Header/>
+
+            <h1>Registro de arboles</h1>
+        </section>
     );
 }
 

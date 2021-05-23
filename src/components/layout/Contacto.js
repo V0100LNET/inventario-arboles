@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Header from './Header';
 
 
 const Contacto = () => {
     return(
-        <h1>Contacto</h1>
+        <Fragment>
+            <Header/>
+            <h1>Contacto</h1>
+        </Fragment>
     )
 }
 

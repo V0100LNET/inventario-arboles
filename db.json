@@ -1,14 +1,76 @@
 {
-    "users": [
+    "arboles": [
         {
-            "email":"testA@test.com",
-            "password": "admin01",
-            "typeUser" : "admin"
+            "id": "1",
+            "name": "ARB33",
+            "placa" : "ARB1234",
+            "type":"pino",
+            "root": "se puede ver",
+            "tronco" : "30cm",
+            "branch": "calidas",
+            "leaf" : "secas",
+            "flowers" : "color morado",
+            "size" : "10m de altura",
+            "age": "22 anos",
+            "ubication" : "calle numero 2",
+            "estado" : "malo",
+            "referenceUbication" : "cerca de la av flores magon",
+            "images" : "url",
+            "especie" : "normal"
         },
         {
-            "email":"testB@test.com",
-            "password": "brigadista01",
-            "typeUser" : "brigadista"
+            "id": "1",
+            "name": "ARB33",
+            "placa" : "ARB1234",
+            "type":"pino",
+            "root": "se puede ver",
+            "tronco" : "30cm",
+            "branch": "calidas",
+            "leaf" : "secas",
+            "flowers" : "color morado",
+            "size" : "10m de altura",
+            "age": "22 anos",
+            "ubication" : "calle numero 2",
+            "estado" : "malo",
+            "referenceUbication" : "cerca de la av flores magon",
+            "images" : "url",
+            "especie" : "normal"
+        },
+        {
+            "id": "1",
+            "name": "ARB33",
+            "placa" : "ARB1234",
+            "type":"pino",
+            "root": "se puede ver",
+            "tronco" : "30cm",
+            "branch": "calidas",
+            "leaf" : "secas",
+            "flowers" : "color morado",
+            "size" : "10m de altura",
+            "age": "22 anos",
+            "ubication" : "calle numero 2",
+            "estado" : "malo",
+            "referenceUbication" : "cerca de la av flores magon",
+            "images" : "url",
+            "especie" : "normal"
+        },
+        {
+            "id": "1",
+            "name": "ARB33",
+            "placa" : "ARB1234",
+            "type":"pino",
+            "root": "se puede ver",
+            "tronco" : "30cm",
+            "branch": "calidas",
+            "leaf" : "secas",
+            "flowers" : "color morado",
+            "size" : "10m de altura",
+            "age": "22 anos",
+            "ubication" : "calle numero 2",
+            "estado" : "malo",
+            "referenceUbication" : "cerca de la av flores magon",
+            "images" : "url",
+            "especie" : "normal"
         }
     ]
 }

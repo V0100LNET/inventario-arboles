@@ -46,11 +46,30 @@ const Login = () => {
             setOpacityContent.classList.add("opacity");
             try {
                 let respuestaBaseDatos = await clienteAxios.post('/auth/login',datos);
-                console.log(respuestaBaseDatos);
                 setTimeout(() => {
                     setSpinner(false);
                     setOpacityContent.classList.remove("opacity");
-                    history.push("/dashboard-admin")
+                    console.log(respuestaBaseDatos.data)
+                    if(respuestaBaseDatos.data.status === "200"){
+                        if(respuestaBaseDatos.data.typeUser === "Admin"){
+                            localStorage.setItem('nameUser',respuestaBaseDatos.data.name);
+                            history.push("/dashboard-admin");
+                        }
+                        else{
+                            localStorage.setItem('nameUser',respuestaBaseDatos.data.name);
+                            history.push("/dashboard-brigadista");
+                        }
+                    }
+                    else if(respuestaBaseDatos.data.status === "404"){
+                        guardarErrores({"email" : respuestaBaseDatos.data.message})
+                    }
+                    else if(respuestaBaseDatos.data.status === "403"){
+                        guardarErrores({"password" : respuestaBaseDatos.data.message})
+                    }
+                    else if(respuestaBaseDatos.data.status === "405"){
+                        guardarErrores({"typeUser" : respuestaBaseDatos.data.message})
+                    }
+
                 }, 3000);
             } catch (error) {
                 console.log(error);
