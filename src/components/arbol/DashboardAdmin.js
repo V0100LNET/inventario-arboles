@@ -22,8 +22,9 @@ const DashboardAdmin = () => {
                 setSpinner(false);
             },2000)
         }
-
+        
         requestDataBase();
+        //eslint-disable-next-line
     },[])
 
 
