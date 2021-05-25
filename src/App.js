@@ -10,18 +10,19 @@ import React from 'react';
 import "./index.css";
 
 
+
 function App() {
   return (
       <Router>
-          <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/login" component={Login}/>
-              <Route exact path="/registrarse" component={Registrarse}/>
-              <Route exact path="/dashboard-admin" component={DashboardAdmin}/>
-              <Route exact path="/dashboard-brigadista" component={DashboardBrigadista}/>
-              <Route exact path="/acerca-de" component={Acercade}/>
-              <Route exact path="/contacto" component={Contacto}/>
-          </Switch>
+        <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/login" component={Login}/>
+            <Route exact path="/registrarse" component={Registrarse}/>
+            <Route exact path="/dashboard-admin" component={DashboardAdmin}/>
+            <Route exact path="/dashboard-brigadista" component={DashboardBrigadista}/>
+            <Route exact path="/acerca-de" component={Acercade}/>
+            <Route exact path="/contacto" component={Contacto}/>
+        </Switch>
       </Router>
   );
 }

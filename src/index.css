@@ -63,6 +63,10 @@ input::placeholder{
     margin: 0;
 }
 
+.opacity{
+    opacity: 0.3;
+}
+
 body{
     font-family: 'Raleway', sans-serif;
 }
@@ -149,10 +153,6 @@ body{
 }
 
 /*****************************************************SPINNER ESTILOS*********************************/
-.opacity{
-    opacity: 0.5;
-}
-
 .sk-chase{
     width: 100px;
     height: 100px;
@@ -347,6 +347,33 @@ h2{
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
 
+.dashboard__admin .table-wrapper .table-wrapper__filter-search{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboard__admin .table-wrapper .table-wrapper__filter-search > *{
+    margin-bottom: 10px;
+}
+
+.dashboard__admin .table-wrapper .table-wrapper__filter-search select{
+    display: block;
+    background-color: #324960;
+    border: none;
+    border: 1px solid #ccc;
+    color: white;
+    padding: 5px;
+    outline: none;
+}
+
+.dashboard__admin .table-wrapper .table-wrapper__filter-search input{
+    border: none;
+    border: 1px solid #ccc;
+    padding: 5px;
+    outline: none;
+}
+
 .fl__table {
     border-radius: 5px;
     font-size: 12px;
@@ -487,3 +514,19 @@ h2{
         text-align: center;
     }
 }
+
+/*****************************************************MODAL ADMIN ESTILOS*********************************/
+.modal-admin .modal-admin__table{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+}
+
+
+
+
+

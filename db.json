@@ -3,6 +3,7 @@
         {
             "id": "1",
             "name": "ARB33",
+            "date" : "2021-05-19",
             "placa" : "ARB1234",
             "type":"pino",
             "root": "se puede ver",
@@ -16,11 +17,20 @@
             "estado" : "malo",
             "referenceUbication" : "cerca de la av flores magon",
             "images" : "url",
-            "especie" : "normal"
+            "especie" : "normal",
+            "dictaminacion" : "Nose",
+            "status" : "Pendiente",
+            "coordenadas" : [
+                {
+                    "latitude" : 19.5315951,
+                    "altitude" : -99.1538065
+                }
+            ]
         },
         {
-            "id": "1",
-            "name": "ARB33",
+            "id": "2",
+            "date" : "2021-05-19",
+            "name": "ARB34",
             "placa" : "ARB1234",
             "type":"pino",
             "root": "se puede ver",
@@ -34,11 +44,20 @@
             "estado" : "malo",
             "referenceUbication" : "cerca de la av flores magon",
             "images" : "url",
-            "especie" : "normal"
+            "especie" : "normal",
+            "dictaminacion" : "Nose",
+            "status" : "Pendiente",
+            "coordenadas" : [
+                {
+                    "latitude" : 19.5315951,
+                    "altitude" : -99.1538065
+                }
+            ]
         },
         {
-            "id": "1",
-            "name": "ARB33",
+            "id": "3",
+            "date" : "2021-05-19",
+            "name": "ARB35",
             "placa" : "ARB1234",
             "type":"pino",
             "root": "se puede ver",
@@ -52,11 +71,20 @@
             "estado" : "malo",
             "referenceUbication" : "cerca de la av flores magon",
             "images" : "url",
-            "especie" : "normal"
+            "especie" : "normal",
+            "dictaminacion" : "Nose",
+            "status" : "Pendiente",
+            "coordenadas" : [
+                {
+                    "latitude" : 19.5315951,
+                    "altitude" : -99.1538065
+                }
+            ]
         },
         {
-            "id": "1",
-            "name": "ARB33",
+            "id": "4",
+            "date" : "2021-05-19",
+            "name": "ARB36",
             "placa" : "ARB1234",
             "type":"pino",
             "root": "se puede ver",
@@ -70,7 +98,15 @@
             "estado" : "malo",
             "referenceUbication" : "cerca de la av flores magon",
             "images" : "url",
-            "especie" : "normal"
+            "especie" : "normal",
+            "dictaminacion" : "Nose",
+            "status" : "Pendiente",
+            "coordenadas" : [
+                {
+                    "latitude" : 19.5315951,
+                    "altitude" : -99.1538065
+                }
+            ]
         }
     ]
 }

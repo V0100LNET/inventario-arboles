@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const clienteAxios = axios.create({
-    baseURL: 'https://still-ridge-67788.herokuapp.com/'
+    baseURL: 'http://127.0.0.1:5500/'
 })
 
 

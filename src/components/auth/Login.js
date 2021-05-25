@@ -35,12 +35,11 @@ const Login = () => {
 
     const submitForm = async (e) => {
         e.preventDefault();
-        const setOpacityContent = document.querySelector(".login");
+        const setOpacityContent = document.body;
         let validarDatos = await validarInicioSesion(datos);
 
         //si la variable datos esta vacia quiere decir que no hay ningun error en la peticion
         if(Object.keys(validarDatos).length === 0){
-            console.log(datos);
             guardarErrores(false);
             setSpinner(true);
             setOpacityContent.classList.add("opacity");
@@ -49,14 +48,17 @@ const Login = () => {
                 setTimeout(() => {
                     setSpinner(false);
                     setOpacityContent.classList.remove("opacity");
-                    console.log(respuestaBaseDatos.data)
+                    console.log(respuestaBaseDatos.data.typeUser)
                     if(respuestaBaseDatos.data.status === "200"){
+                        //if para el admin o brigadista
                         if(respuestaBaseDatos.data.typeUser === "Admin"){
                             localStorage.setItem('nameUser',respuestaBaseDatos.data.name);
+                            localStorage.setItem('typeUser',respuestaBaseDatos.data.typeUser);
                             history.push("/dashboard-admin");
                         }
                         else{
                             localStorage.setItem('nameUser',respuestaBaseDatos.data.name);
+                            localStorage.setItem('typeUser',respuestaBaseDatos.data.typeUser);
                             history.push("/dashboard-brigadista");
                         }
                     }

@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 
 export const PrincipalContext = createContext({});
 
-export const ContextProvider = ({ children }) => {
+export const PrincipalContext = ({ children }) => {
     const [test, setTest] = useState(false);
     setTest("fasdfasdfasdf");
 

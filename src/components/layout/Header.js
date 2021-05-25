@@ -17,12 +17,24 @@ const Header = () => {
         history.push("/registrarse");
     }
 
+    const showDashboardAdmin = () => {
+        const typeUser = localStorage.getItem('typeUser');
+
+        if(typeUser === "Admin"){
+            history.push("/dashboard-admin");
+        }
+        else{
+            history.push("/dashboard-brigadista");
+        }
+    }
+
     const closeSession = () => {
-        const setOpacityContent = document.querySelector(".dashboard");
+        const setOpacityContent = document.body;
 
         setOpacityContent.classList.add("opacity");
         setSpinner(true);
         localStorage.removeItem('nameUser');
+        localStorage.removeItem('typeUser');
         setTimeout(() => {
             setSpinner(false);
             setOpacityContent.classList.remove("opacity");
@@ -50,7 +62,7 @@ const Header = () => {
                     )
                     : (
                         <div>
-                            <button className="register">{`Buen día ${userName_storage}`}</button>
+                            <button className="register" onClick={() => showDashboardAdmin()}>{`Buen día ${userName_storage}`}</button>
                             <button className="btn-principal" onClick={closeSession}>Cerrar Sesión</button>
                         </div>
                     )

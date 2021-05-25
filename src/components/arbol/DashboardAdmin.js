@@ -1,86 +1,97 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import clienteAxios from '../../config/axios';
-// import { PrincipalContext } from '../../context';
 import Header from '../layout/Header';
+import ModalAdmin from '../modal-admin/ModalAdmin';
 import Spinner from '../Spinner';
 
 
 const DashboardAdmin = () => {
-    const [data,setData] = useState({})
+    const [data,setData] = useState([])
     const [spinner, setSpinner] = useState(false);
-    // const {test, setTest} = useContext(PrincipalContext);
+    const [modalAdmin, setModalAdmin] = useState(false);
 
     useEffect(() => {
         const requestDataBase = async () => {
             let requestTreeInfo = await clienteAxios.get("http://localhost:5000/arboles");
-            // console.log(requestTreeInfo.data); //array in console
-            setData(requestTreeInfo.data);
-            console.log(data);
             setSpinner(true);
             
             setTimeout(() => {
-                setSpinner(false);
+		        setSpinner(false);
             },2000)
+
+            setData(requestTreeInfo.data);
+            
         }
         
         requestDataBase();
         //eslint-disable-next-line
     },[])
 
+    console.log(data);
+    const handleInfo = (id, info) => {
+        const opacity_body = document.querySelector(".dashboard");
+        opacity_body.classList.add("opacity");
+        setModalAdmin(true);
+        console.log(info);
+        alert(id);
+    }
 
     return(
-        <section className="dashboard">
-            <Header/>
+        <Fragment>
+            {modalAdmin ? <ModalAdmin/> : null}
 
-            <div className="dashboard__admin">
-                <div className="table-wrapper">
-                    <h2>Árboles Registrados</h2>
-                    <table className="fl__table">
-                        <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Dictaminación de Árboles</th>
-                            <th>Detalles</th>
-                            <th>Fecha</th>
-                            <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>ARB33</td>
-                            <td>Poda de árbol</td>
-                            <td><button class="fl__table-btn-see">Ver</button></td>
-                            <td>Fecha</td>
-                            <td><button class="fl__table-button-status fl__table-button-status_pending">Pendiente</button></td>
+            <section className="dashboard">
+                <Header/>
+
+                <div className="dashboard__admin">
+                    <div className="table-wrapper">
+                        <h2>Árboles Registrados</h2>
+                        
+                        <div className="table-wrapper__filter-search">
+                            <div className="table-wrapper__filter-search__select">
+                                <select>
+                                    <option>--Filtrar Búsqueda--</option>
+                                    <option>Especie</option>
+                                    <option>Edad</option>
+                                    <option>Status</option>
+                                    <option>Tamaño</option>
+                                </select>
+                            </div>
+                            <div className="table-wrapper__filter-search__input">
+                                <input
+                                    placeholder="Buscar"
+                                />
+                            </div>
+                        </div>
+
+                        <table className="fl__table">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dictaminación de Árboles</th>
+                                <th>Detalles</th>
+                                <th>Fecha de Registro</th>
+                                <th>Status</th>
                             </tr>
-                        <tr>
-                            <td>ARB34</td>
-                            <td>Poda de árbol</td>
-                            <td><button class="fl__table-btn-see">Ver</button></td>
-                            <td>Fecha</td>
-                            <td><button class="fl__table-button-status fl__table-button-status_success">Pendiente</button></td>
-                        </tr>
-                        <tr>
-                            <td>ARB35</td>
-                            <td>Poda de árbol</td>
-                            <td><button class="fl__table-btn-see">Ver</button></td>
-                            <td>Fecha</td>
-                            <td><button class="fl__table-button-status fl__table-button-status_cancel">Pendiente</button></td>
-                        </tr>
-                        <tr>
-                            <td>ARB36</td>
-                            <td>Poda de árbol</td>
-                            <td><button class="fl__table-btn-see">Ver</button></td>
-                            <td>Fecha</td>
-                            <td><button class="fl__table-button-status fl__table-button-status_success">Pendiente</button></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            {data.map((info, index) => (
+                                <tr key={index}>
+                                    <td>{info.name}</td>
+                                    <td>{info.dictaminacion}</td>
+                                    <td><button className="fl__table-btn-see" onClick={() => handleInfo(info.id, info)}>Ver</button></td>
+                                    <td>{info.date}</td>
+                                    <td><button className="fl__table-button-status fl__table-button-status_pending">{info.status}</button></td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            
-            {spinner ? <Spinner/> : null}
-        </section>
+                
+                {spinner ? <Spinner/> : null}
+            </section>
+        </Fragment>
     );
 }
 
