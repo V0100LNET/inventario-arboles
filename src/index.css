@@ -516,16 +516,62 @@ h2{
 }
 
 /*****************************************************MODAL ADMIN ESTILOS*********************************/
-.modal-admin .modal-admin__table{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    z-index: 2;
+.modal-admin .table-wrapper-info{
+    position: relative;
 }
 
+.modal-admin .table-wrapper-info .fl__table-info{
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 1200px;
+    white-space: nowrap;
+    background-color: white;
+    position: absolute;
+    z-index: 3;
+    top: 200px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.modal-admin .table-wrapper-info .fl__table-info th:nth-child(odd){
+    color: #fff;
+    background: #324960;
+}
+
+.modal-admin .table-wrapper-info .fl__table-info tr:nth-child(even){
+    background: #F8F8F8;
+}
+
+.modal-admin .table-wrapper-info .btn-close{
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    margin: auto;
+    width: 120px;
+    z-index: 3;
+}
+
+.modal-admin .table-wrapper-info .btn-close button{
+    padding: 5px;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.modal-admin .table-wrapper-info .btn-close button i{
+    margin-left: 7px;
+    align-content: center;
+}
 
 
 

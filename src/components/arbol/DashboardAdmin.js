@@ -27,12 +27,10 @@ const DashboardAdmin = () => {
         //eslint-disable-next-line
     },[])
 
-    console.log(data);
     const handleInfo = (id, info) => {
         const opacity_body = document.querySelector(".dashboard");
         opacity_body.classList.add("opacity");
         setModalAdmin(true);
-        console.log(info);
         alert(id);
     }
 
