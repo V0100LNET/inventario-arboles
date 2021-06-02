@@ -3,7 +3,7 @@ import { PrincipalContext } from '../../context';
 
 
 const ModalAdmin = () => {
-    const {dataModalAdmin, modalAdmin, setModalAdmin} = useContext(PrincipalContext);
+    const {dataModalAdmin, setModalAdmin} = useContext(PrincipalContext);
 
     const tittleTable = [
         {title: "Nombre",id:"name"},
