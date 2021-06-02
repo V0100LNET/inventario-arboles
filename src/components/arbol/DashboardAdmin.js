@@ -1,5 +1,6 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import clienteAxios from '../../config/axios';
+import { PrincipalContext } from '../../context';
 import Header from '../layout/Header';
 import ModalAdmin from '../modal-admin/ModalAdmin';
 import Spinner from '../Spinner';
@@ -8,7 +9,7 @@ import Spinner from '../Spinner';
 const DashboardAdmin = () => {
     const [data,setData] = useState([])
     const [spinner, setSpinner] = useState(false);
-    const [modalAdmin, setModalAdmin] = useState(false);
+    const {setDataModalAdmin, modalAdmin, setModalAdmin} = useContext(PrincipalContext);
 
     useEffect(() => {
         const requestDataBase = async () => {
@@ -30,8 +31,8 @@ const DashboardAdmin = () => {
     const handleInfo = (id, info) => {
         const opacity_body = document.querySelector(".dashboard");
         opacity_body.classList.add("opacity");
+        setDataModalAdmin(info);
         setModalAdmin(true);
-        alert(id);
     }
 
     return(
@@ -66,20 +67,24 @@ const DashboardAdmin = () => {
                             <thead>
                             <tr>
                                 <th>Nombre</th>
-                                <th>Dictaminación de Árboles</th>
+                                <th>Dictaminación</th>
                                 <th>Detalles</th>
                                 <th>Fecha de Registro</th>
                                 <th>Status</th>
+                                <th>Imagénes</th>
+                                <th>Mapa</th>
                             </tr>
                             </thead>
                             <tbody>
-                            {data.map((info, index) => (
+                            {data && data.map((info, index) => (
                                 <tr key={index}>
                                     <td>{info.name}</td>
                                     <td>{info.dictaminacion}</td>
                                     <td><button className="fl__table-btn-see" onClick={() => handleInfo(info.id, info)}>Ver</button></td>
                                     <td>{info.date}</td>
                                     <td><button className="fl__table-button-status fl__table-button-status_pending">{info.status}</button></td>
+                                    <td><button>Ver imagénes</button></td>
+                                    <td><button>Ver mapa</button></td>
                                 </tr>
                             ))}
                             </tbody>

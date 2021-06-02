@@ -1,21 +1,19 @@
-import React, { createContext, useState } from 'react';
-
+import { createContext, useState } from 'react';
 
 export const PrincipalContext = createContext({});
 
-export const PrincipalContext = ({ children }) => {
-    const [test, setTest] = useState(false);
-    setTest("fasdfasdfasdf");
+export const ContextProvider = ({ children }) => {
+    const [dataModalAdmin, setDataModalAdmin] = useState({});
+    const [modalAdmin, setModalAdmin] = useState(false);
+    
 
-    return(
+    return (
         <PrincipalContext.Provider
             value={{
-                test, setTest
-            }}
-        >
-
-
-        {children}
+                dataModalAdmin, setDataModalAdmin,
+                modalAdmin, setModalAdmin
+            }}>
+            {children}
         </PrincipalContext.Provider>
     )
 }

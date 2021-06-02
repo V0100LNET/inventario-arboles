@@ -6,6 +6,7 @@ import Contacto from './components/layout/Contacto';
 import Acercade from './components/layout/Acercade';
 import Home from "./components/layout/Home";
 import Login from "./components/auth/Login";
+import { ContextProvider } from './context';
 import React from 'react';
 import "./index.css";
 
@@ -13,17 +14,19 @@ import "./index.css";
 
 function App() {
   return (
-      <Router>
-        <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/registrarse" component={Registrarse}/>
-            <Route exact path="/dashboard-admin" component={DashboardAdmin}/>
-            <Route exact path="/dashboard-brigadista" component={DashboardBrigadista}/>
-            <Route exact path="/acerca-de" component={Acercade}/>
-            <Route exact path="/contacto" component={Contacto}/>
-        </Switch>
-      </Router>
+      <ContextProvider>
+        <Router>
+          <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/login" component={Login}/>
+              <Route exact path="/registrarse" component={Registrarse}/>
+              <Route exact path="/dashboard-admin" component={DashboardAdmin}/>
+              <Route exact path="/dashboard-brigadista" component={DashboardBrigadista}/>
+              <Route exact path="/acerca-de" component={Acercade}/>
+              <Route exact path="/contacto" component={Contacto}/>
+          </Switch>
+        </Router>
+      </ContextProvider>
   );
 }
 
