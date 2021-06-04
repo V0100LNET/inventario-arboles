@@ -48,7 +48,6 @@ const Login = () => {
                 setTimeout(() => {
                     setSpinner(false);
                     setOpacityContent.classList.remove("opacity");
-                    console.log(respuestaBaseDatos.data.typeUser)
                     if(respuestaBaseDatos.data.status === "200"){
                         //if para el admin o brigadista
                         if(respuestaBaseDatos.data.typeUser === "Admin"){

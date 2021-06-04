@@ -1,0 +1,17 @@
+export const tittleTable = [
+    {title: "Nombre",id:"name"},
+    {title: "Fecha de Registro", id:"date"},
+    {title: "Placa Grabada", id: "placa"},
+    {title: "Tipo", id: "type"},
+    {title: "Raíz", id: "root"},
+    {title: "Tronco", id: "tronco"},
+    {title: "Rama", id: "branch"},
+    {title: "Hojas", id: "leaf"},
+    {title: "Flores", id: "flowers"},
+    {title: "Tamaño", id: "size"},
+    {title: "Edad", id: "age"},
+    {title: "Ubicación", id: "ubication"},
+    {title: "Estado", id: "state"},
+    {title: "Referencias", id: "referenceUbication"},
+    {title: "Especie", id: "especie"},
+]

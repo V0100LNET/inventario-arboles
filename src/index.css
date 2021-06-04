@@ -573,8 +573,36 @@ h2{
     align-content: center;
 }
 
-/*****************************************************REGISTRO DE ARBOLES ESTILOS*********************************/
-.dashboard h1{
+/*****************************************************MODAL DE IMAGES*********************************/
+.container-modal-images{
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 550px;
+    z-index: 3;
+}
+
+.container-modal-images .__tittle{
+    text-align: center;
+    display: block;
+    font-size: 30px;
+}
+
+.container-modal-images .__btn-see-image{
+    padding: 5px;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+/*****************************************************REGISTRO BRIGADISTA DE ARBOLES ESTILOS*********************************/
+.dashboard .dashboard_title{
     text-align: center;
     margin-top: 30px;
 }
@@ -602,4 +630,6 @@ h2{
     width: 100%;
     margin-top: 20px;
 }
+
+
 

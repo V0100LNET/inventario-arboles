@@ -20,7 +20,6 @@ const Registrarse = () => {
         typeUser: ""
     });
 
-
     const history = useHistory();
 
     const { name, lastName, email, number_tel, password, typeUser} = datos;
@@ -155,6 +154,7 @@ const Registrarse = () => {
                         <option>Admin</option>
                         <option>Brigadista</option>
                     </select>
+                    
                     {error ? <Error mensaje={error.typeUser}/> : null}
 
                     <button className="btn-principal" onClick={submitForm}>Registrarse</button>
