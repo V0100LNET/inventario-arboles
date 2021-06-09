@@ -23,8 +23,8 @@ export default function validarRegistro(valores){
     if(!valores.password){
         errores.password = "El password es obligatorio";
     }
-    else if(valores.password.length < 6){
-        errores.password = "El password debe ser de al menos 6 carácteres";
+    else if(valores.password.length < 8){
+        errores.password = "El password debe ser de al menos 8 carácteres";
     }
 
     if(!valores.typeUser){

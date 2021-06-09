@@ -151,6 +151,7 @@ const DashboardBrigadista = () => {
             setOpacityContent.classList.remove("opacity");
             Swal.fire({
                 title: '¡Registro Exitoso!',
+                text: 'Dirijase a la sección de mapas para registrar la geolocalización del árbol',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
             });

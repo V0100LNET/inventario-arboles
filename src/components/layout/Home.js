@@ -13,8 +13,7 @@ const Home = () => {
                 <section>
                     <h1 className="home__content_title">CDMX Trámites</h1>
                     <p>
-                        Plataforma para el ciudadano el cual permite hacer
-                        trámites como poda de árboles
+                        Plataforma para el registro de árboles
                     </p>
                     <div className="home__content_buttons">
                         <button className="btn-principal get-service">Solcitar Servicio</button>

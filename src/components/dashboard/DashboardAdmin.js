@@ -3,20 +3,24 @@ import Swal from 'sweetalert2';
 import clienteAxios from '../../config/axios';
 import { PrincipalContext } from '../../context';
 import Header from '../layout/Header';
-import ModalAdmin from '../modals/ModalAdmin';
+import ModalAdmin from '../modals/ModalSeeInfoTrees';
+import ModalEditInfoTress from '../modals/ModalEditInfoTrees';
 import ModalImages from '../modals/ModalImages';
 import Spinner from '../Spinner';
+import { useHistory } from 'react-router';
 
 
 const DashboardAdmin = () => {
-    const [data,setData] = useState([])
+    const history = useHistory();
+    const [data,setData] = useState([]);
     const [spinner, setSpinner] = useState(false);
     let opacity_body = document.querySelector(".dashboard");
     const {
         setDataModalAdmin, modalAdmin, 
         setModalAdmin, modalImages, 
-        setModalImages,
-        setSaveImages
+        setModalImages, setSaveImages,
+        modalEditInfoTree, setModalInfoTree,
+        dataModalEditInfoTree, setDataModalEditInfoTree,
     } = useContext(PrincipalContext);
 
     useEffect(() => {
@@ -43,11 +47,14 @@ const DashboardAdmin = () => {
     }
 
     const handleSeeMapTree = (id, info) => {
-        // console.log(info, id);
+  
     }
 
     const handleEditInfoTree = (id, info) => {
-        // console.log(info, id);
+        // setModalInfoTree(true);
+        setDataModalEditInfoTree(info);
+        // setDataModalAdmin(info);
+        history.push('/edit-info');
     }
 
     const handleDeleteTree = async(id, info) => {
@@ -93,13 +100,14 @@ const DashboardAdmin = () => {
         opacity_body.classList.add("opacity");
         setDataModalAdmin(info);
         setModalAdmin(true);
-        // console.log(info);
     }
 
     return(
         <Fragment>
             {modalAdmin ? <ModalAdmin/> : null}
             {modalImages ? <ModalImages/> : null}
+            {modalEditInfoTree ? <ModalEditInfoTress/> : null}
+            
             <section className="dashboard">
                 <Header/>
 

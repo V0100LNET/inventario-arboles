@@ -6,6 +6,7 @@ import Spinner from '../Spinner';
 const Header = () => {
     const history = useHistory();
     const userName_storage = localStorage.getItem('nameUser');
+    const typeUser_storege = localStorage.getItem('typeUser');
     const [spinner, setSpinner] = useState(false);
 
 
@@ -26,6 +27,21 @@ const Header = () => {
         else{
             history.push("/dashboard-brigadista");
         }
+    }
+
+    const registerTreeToMaps = (e) => {
+        e.preventDefault();
+        history.push('/maps');
+    }
+
+    const showAboutYou = (e) => {
+        e.preventDefault();
+        history.push('/acerca-de');
+    }
+
+    const showContact = (e) => {
+        e.preventDefault();
+        history.push('/contacto');
     }
 
     const closeSession = () => {
@@ -49,8 +65,14 @@ const Header = () => {
             </div>
             <div className="home__links-link">
                 <a href="/#" className="active">Inicio</a>
-                <a href="/acerca-de">A cerca de</a>
-                <a href="/contacto">Contacto</a>
+                {typeUser_storege === 'Brigadista' 
+                    ? (
+                        <a href="/#" onClick={registerTreeToMaps}>Mapas</a>
+                    ) 
+                    : null
+                }
+                <a href="/#" onClick={showAboutYou}>A cerca de</a>
+                <a href="/#" onClick={showContact}>Contacto</a>
             </div>
             <div className="home__links-buton">
                 {userName_storage === null 
