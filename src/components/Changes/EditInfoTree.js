@@ -12,28 +12,9 @@ import { useHistory } from 'react-router-dom';
 
 const EditInfoTree = () => {
     const history = useHistory();
-    let fileObject = [];
-    let fileArray = [];
     const {dataModalEditInfoTree, setDataModalEditInfoTree} = useContext(PrincipalContext);
     const [error, setError] = useState(false);
     const [spinner, setSpinner] = useState(false);
-    const [dataTree, setDataTree] = useState({
-        name: "",
-        date: "",
-        placa: "",
-        type: "",
-        root: "",
-        tronco: "",
-        branch: "",
-        leaf: "",
-        flowers: "",
-        size: "",
-        age: "",
-        ubication: "",
-        state: "",
-        referenceUbication: "",
-        especie: ""
-    })
     const { 
         name, date, 
         placa, type, 
@@ -86,7 +67,6 @@ const EditInfoTree = () => {
     // enviando el formulario
     const sendFormData = async(e) => {
         e.preventDefault();
-        const resetValue = document.getElementById("resetValue");
         const setOpacityContent = document.querySelector(".dashboard");
         let validateData = await ValidateRegisterTree(dataModalEditInfoTree);
 
@@ -148,24 +128,6 @@ const EditInfoTree = () => {
         setSpinner(true);
         setOpacityContent.classList.add("opacity");
         setTimeout(() => {
-            setDataTree({
-                name: "",
-                date: "",
-                placa: "",
-                type: "",
-                root: "",
-                tronco: "",
-                branch: "",
-                leaf: "",
-                flowers: "",
-                size: "",
-                age: "",
-                ubication: "",
-                state: "",
-                referenceUbication: "",
-                especie: ""
-            })
-            // resetValue.value = "";
             setSpinner(false);
             setOpacityContent.classList.remove("opacity");
             Swal.fire({

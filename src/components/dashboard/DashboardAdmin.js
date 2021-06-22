@@ -4,7 +4,6 @@ import clienteAxios from '../../config/axios';
 import { PrincipalContext } from '../../context';
 import Header from '../layout/Header';
 import ModalAdmin from '../modals/ModalSeeInfoTrees';
-import ModalEditInfoTress from '../modals/ModalEditInfoTrees';
 import ModalImages from '../modals/ModalImages';
 import Spinner from '../Spinner';
 import { useHistory } from 'react-router';
@@ -19,8 +18,7 @@ const DashboardAdmin = () => {
         setDataModalAdmin, modalAdmin, 
         setModalAdmin, modalImages, 
         setModalImages, setSaveImages,
-        modalEditInfoTree, setModalInfoTree,
-        dataModalEditInfoTree, setDataModalEditInfoTree,
+        setDataModalEditInfoTree,
     } = useContext(PrincipalContext);
 
     useEffect(() => {
@@ -113,7 +111,6 @@ const DashboardAdmin = () => {
         <Fragment>
             {modalAdmin ? <ModalAdmin/> : null}
             {modalImages ? <ModalImages/> : null}
-            {modalEditInfoTree ? <ModalEditInfoTress/> : null}
             
             <section className="dashboard">
                 <Header/>
