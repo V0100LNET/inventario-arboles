@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Header from '../layout/Header';
 
 
-const Maps = () => {
+const MapView = () => {
     return(
         <Fragment>
             <Header/>
@@ -16,4 +16,4 @@ const Maps = () => {
 
 
 
-export default Maps;
+export default MapView;

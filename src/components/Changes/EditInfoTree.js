@@ -6,13 +6,15 @@ import clienteAxios from '../../config/axios';
 import ValidateRegisterTree from '../../helpers/validateRegisterTree';
 import Spinner from '../Spinner';
 import { PrincipalContext } from '../../context';
+import { useHistory } from 'react-router-dom';
 
 
 
 const EditInfoTree = () => {
+    const history = useHistory();
     let fileObject = [];
     let fileArray = [];
-    const {dataModalEditInfoTree} = useContext(PrincipalContext);
+    const {dataModalEditInfoTree, setDataModalEditInfoTree} = useContext(PrincipalContext);
     const [error, setError] = useState(false);
     const [spinner, setSpinner] = useState(false);
     const [dataTree, setDataTree] = useState({
@@ -41,11 +43,11 @@ const EditInfoTree = () => {
         age, ubication, 
         state, referenceUbication, 
         especie
-    } = dataTree;
+    } = dataModalEditInfoTree;
 
     const setData = (e) => {
-        setDataTree({
-            ...dataTree,
+        setDataModalEditInfoTree({
+            ...dataModalEditInfoTree,
             [e.target.name]: e.target.value
         })
     }
@@ -53,76 +55,87 @@ const EditInfoTree = () => {
     console.log(dataModalEditInfoTree.age);
 
     // subiendo la imagen 
-    const onFileUpload = (e) => {
-        fileObject.push(e.target.files);
-        for(let i=0; i<fileObject[0].length; i++){
-            fileArray.push(URL.createObjectURL(fileObject[0][i]));
-        }
+    // const onFileUpload = (e) => {
+    //     fileObject.push(e.target.files);
+    //     for(let i=0; i<fileObject[0].length; i++){
+    //         fileArray.push(URL.createObjectURL(fileObject[0][i]));
+    //     }
        
-        if(fileArray.length > 5){
-            Swal.fire({
-                icon: 'error',
-                title: '¡ERROR!',
-                text: '!Solo se permiten 5 imágenes!',
-                confirmButtonText: 'Aceptar'
-            })
-            setDataTree({
-                ...dataTree,
-                image: fileArray
-            })
-            return;
-        }
-        else{
-            setError(false);
-            setDataTree({
-                ...dataTree,
-                image: fileArray
-            })
-        }
-    }
+    //     if(fileArray.length > 5){
+    //         Swal.fire({
+    //             icon: 'error',
+    //             title: '¡ERROR!',
+    //             text: '!Solo se permiten 5 imágenes!',
+    //             confirmButtonText: 'Aceptar'
+    //         })
+    //         setDataTree({
+    //             ...dataTree,
+    //             image: fileArray
+    //         })
+    //         return;
+    //     }
+    //     else{
+    //         setError(false);
+    //         setDataTree({
+    //             ...dataTree,
+    //             image: fileArray
+    //         })
+    //     }
+    // }
 
     // enviando el formulario
     const sendFormData = async(e) => {
         e.preventDefault();
         const resetValue = document.getElementById("resetValue");
         const setOpacityContent = document.querySelector(".dashboard");
-        let validateData = await ValidateRegisterTree(dataTree);
+        let validateData = await ValidateRegisterTree(dataModalEditInfoTree);
 
         if(Object.keys(validateData).length === 0){
             setError(false);
 
-            if(!dataTree.image){
-                Swal.fire({
-                    icon: 'error',
-                    title: '¡ERROR!',
-                    text: '!No has seleccionado ninguna imagen!',
-                    confirmButtonText: 'Aceptar'
-                })
+            // if(!dataTree.image){
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: '¡ERROR!',
+            //         text: '!No has seleccionado ninguna imagen!',
+            //         confirmButtonText: 'Aceptar'
+            //     })
 
-                return
-            }
-            else if(dataTree.image.length > 5){
-                Swal.fire({
-                    icon: 'error',
-                    title: '¡ERROR!',
-                    text: '!Solo se permiten 5 imágenes!',
-                    confirmButtonText: 'Aceptar'
-                })
+            //     return
+            // }
+            // else if(dataTree.image.length > 5){
+            //     Swal.fire({
+            //         icon: 'error',
+            //         title: '¡ERROR!',
+            //         text: '!Solo se permiten 5 imágenes!',
+            //         confirmButtonText: 'Aceptar'
+            //     })
                                 
-                return
-            }
+            //     return
+            // }
 
             try{
-                // let setDataToDataBase = await clienteAxios.post('/tree/register-tree',dataTree);
-                // if(setDataToDataBase.data.description === dataTree.name){
-                //     setError({"name" : setDataToDataBase.data.message});
-                //     return
-                // }
+                let requestDataBase = await clienteAxios.put('/tree/update-tree',dataModalEditInfoTree);
+                console.log(requestDataBase);
+                if(requestDataBase.data.description === dataModalEditInfoTree.name){
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡ERROR!',
+                        text: requestDataBase.data.message,
+                        confirmButtonText: 'Aceptar'
+                    })
+                    return
+                }
 
-                // if(setDataToDataBase.data.description === dataTree.placa){
-                //     setError({"placa" : setDataToDataBase.data.message});
-                //     return
-                // }
+                if(requestDataBase.data.description === dataModalEditInfoTree.placa){
+                    Swal.fire({
+                        icon: 'error',
+                        title: '¡ERROR!',
+                        text: requestDataBase.data.message,
+                        confirmButtonText: 'Aceptar'
+                    })
+                    return
+                }
             }catch(error){
                 console.log(error);
                 return
@@ -152,14 +165,23 @@ const EditInfoTree = () => {
                 referenceUbication: "",
                 especie: ""
             })
-            resetValue.value = "";
+            // resetValue.value = "";
             setSpinner(false);
             setOpacityContent.classList.remove("opacity");
             Swal.fire({
                 title: '¡Cambios Guardados con Éxito!',
                 icon: 'success',
-                confirmButtonText: 'Aceptar'
-            });
+                confirmButtonText: 'Aceptar',
+                allowOutsideClick: false
+            }).then(async(result) => {
+                if(result.isConfirmed){
+                    history.push('/dashboard-admin');
+                }
+            })
+            // setTimeout(() => {
+            //     history.push('/dashboard-admin');
+            // },2000)
+            console.log(dataModalEditInfoTree);
         },3000)
     }
 
@@ -343,7 +365,7 @@ const EditInfoTree = () => {
 
                             {error ? <Error mensaje={error.referenceUbication}/> : null}
 
-                            <label>Imagénes</label>
+                            {/* <label>Imagénes</label>
                             <input 
                                 type="file" 
                                 className="input-principal" 
@@ -351,7 +373,7 @@ const EditInfoTree = () => {
                                 multiple
                                 accept="image/*"
                                 id="resetValue"
-                            />
+                            /> */}
 
                             <label>Especie</label>
                             <input 

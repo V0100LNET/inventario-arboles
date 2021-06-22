@@ -47,7 +47,7 @@ const DashboardAdmin = () => {
     }
 
     const handleSeeMapTree = (id, info) => {
-  
+        history.push('/maps');
     }
 
     const handleEditInfoTree = (id, info) => {
@@ -68,7 +68,7 @@ const DashboardAdmin = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Aceptar',
-            cancelButtonText: 'Cancelar'
+            cancelButtonText: 'Cancelar',
         }).then(async(result) => {
             if(result.isConfirmed){
                 opacity_body.classList.add("opacity");
@@ -83,12 +83,19 @@ const DashboardAdmin = () => {
                     Swal.fire({
                         title: '¡Registro Eliminado!',
                         icon: 'success',
-                        confirmButtonText: 'Aceptar'
+                        confirmButtonText: 'Aceptar',
+                        allowOutsideClick: false
+                    }).then(async(result) => {
+                        if(result.isConfirmed){
+                            setSpinner(false);
+                            opacity_body.classList.remove("opacity");
+                            window.location.reload();
+                        }
                     })
-                    setSpinner(false);
-                    opacity_body.classList.remove("opacity");
-                    setTimeout(() => window.location.reload(),1500);
                 },2500)
+
+                
+
             }
             else{
                 return
